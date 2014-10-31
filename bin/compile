@@ -174,8 +174,8 @@ echo "export PATH=\"\$HOME/.gem/ruby/1.9.1/bin:\$PATH\"" > $build_dir/.profile.d
     # make sure that grunt and grunt-cli are installed locally
     npm install grunt-cli
     npm install grunt
-    echo "-----> Found Gruntfile, running grunt heroku:$NODE_ENV task"
-    $build_dir/node_modules/.bin/grunt heroku:$NODE_ENV
+    echo "-----> Found Gruntfile, running grunt heroku:$BUILD_ENV task"
+    $build_dir/node_modules/.bin/grunt heroku:$BUILD_ENV
 
     status "Pruning dev dependencies"
     npm prune --production 2>&1 | indent
