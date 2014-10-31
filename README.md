@@ -28,6 +28,7 @@ Here's an overview of what this buildpack does:
 - Always runs `npm install` to ensure [npm script hooks](https://npmjs.org/doc/misc/npm-scripts.html) are executed.
 - Always runs `npm prune` after restoring cached modules to ensure cleanup of unused dependencies.
 - Runs `grunt` if a Gruntfile (`Gruntfile.js`, `Gruntfile.coffee`or `grunt.js`) is found.
+- Install Sass
 
 For more technical details, see the [heavily-commented compile script](https://github.com/mbuchetics/heroku-buildpack-nodejs-grunt/blob/master/bin/compile).
 
@@ -46,9 +47,9 @@ Enable heroku `user-env-compile` lab:
     
     heroku labs:enable user-env-compile
 
-Set the `NODE_ENV` environment variable (e.g. `development` or `production`):
+Set the `BUILD_ENV` environment variable (e.g. `development` or `production`):
 
-    heroku config:set NODE_ENV=production
+    heroku config:set BUILD_ENV=production
 
 Create your Node.js app and add a Gruntfile named  `Gruntfile.js` (or `Gruntfile.coffee` if you want to use CoffeeScript, or `grunt.js` if you are using Grunt 0.3) with a `heroku` task:
 
